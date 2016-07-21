@@ -338,7 +338,7 @@ INSTALLED_APPS = (
     'product_details',
 
     # third-party apps
-    'jingo_markdown',
+    'django_jinja_markdown',
     'django_statsd',
     'pagedown',
     'rest_framework',
@@ -446,7 +446,7 @@ TEMPLATES = [
                 'lib.l10n_utils.template.i18n',
                 'lib.l10n_utils.template.l10n_blocks',
                 'lib.l10n_utils.template.lang_blocks',
-                'jingo_markdown.extensions.MarkdownExtension',
+                'django_jinja_markdown.extensions.MarkdownExtension',
                 'pipeline.jinja2.PipelineExtension',
             ],
         }

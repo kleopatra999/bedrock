@@ -62,8 +62,6 @@ https://github.com/kurtmckee/feedparser/archive/2aa5286245ed40b13a0f77f997d124c1
     --hash=sha256:70a0535bc9252a01f062713af800658a21eee34e5474b2823ea706eda222a26f
 https://github.com/tweepy/tweepy/archive/3941489457db86710b770bc120409d6947904afa.tar.gz#egg=tweepy \
     --hash=sha256:a9b7728d94beeba624fae4be378542a222cf1c5cf845b916ba9a8b3f8f9e4559
-https://github.com/waylan/Python-Markdown/archive/d7fa7931bec55eec5498cd79882b770d1110b9b7.tar.gz#egg=Markdown \
-    --hash=sha256:376041672881b01619deafa172960b4e0471213cae007fbd403f0848b5073d75
 django-extensions==1.5.3 \
     --hash=sha256:ca464577ddbc295ea5a93219adde7723e2e734f44a9c8cb928b75c6140d61519 \
     --hash=sha256:b88d4773697a16a0a2a9ba6fcb082c6c51ec9543ca0f634541680fec4a6867b1
@@ -120,3 +118,6 @@ django-jinja==2.1.3 \
 django-jinja-markdown==1.0 \
     --hash=sha256:b6ad614bc761b01f073833d4367547990e9c9898152e9b4b4b43b0ef7b9b95bc \
     --hash=sha256:31a49dcfdbff597caba5de093b5ec7f7320170e08fc0b1ef638c99caedd6c5f3
+Markdown==2.6.6 \
+    --hash=sha256:9a292bb40d6d29abac8024887bcfc1159d7a32dc1d6f1f6e8d6d8e293666c504 \
+    --hash=sha256:022239550fb4a84bcc3b3b42dff9a41efc56d773ef17c4f28016dd8f265c82d0
