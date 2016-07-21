@@ -45,9 +45,6 @@ if DATABASES['default']['ENGINE'].endswith('psycopg2'):
     # let the DB handle connection killing
     DATABASES['default']['CONN_MAX_AGE'] = None
 
-SLAVE_DATABASES = config('SLAVE_DATABASES', cast=Csv(), default=',')
-DATABASE_ROUTERS = ('multidb.PinningMasterSlaveRouter',)
-
 CACHES = config(
     'CACHES',
     cast=json.loads,
@@ -959,13 +956,8 @@ SEND_TO_DEVICE_LOCALES = ['de', 'en-GB', 'en-US', 'en-ZA',
                           'es-AR', 'es-CL', 'es-ES', 'es-MX',
                           'fr', 'id', 'pl', 'pt-BR', 'ru']
 
-# Publishing system config
-RNA = {
-    'BASE_URL': config('RNA_BASE_URL', default='https://nucleus.mozilla.org/rna/'),
-
-    # default False as temporary workaround for bug 973499
-    'VERIFY_SSL_CERT': config('VERIFY_SSL_CERT', cast=bool, default=False),
-}
+RNA_SYNC_URL = config('RNA_SYNC_URL',
+                      default='https://nucleus.mozilla.org/rna/sync/')
 
 MOFO_SECURITY_ADVISORIES_PATH = config('MOFO_SECURITY_ADVISORIES_PATH',
                                        default=path('mofo_security_advisories'))
