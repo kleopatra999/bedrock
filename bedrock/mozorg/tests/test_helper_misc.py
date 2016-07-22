@@ -1,20 +1,19 @@
 import os.path
 
-from mock import patch
-
 from django.conf import settings
 from django.test.client import RequestFactory
 from django.test.utils import override_settings
-from bedrock.base.helpers import static
 
-import jingo
-from bedrock.base.urlresolvers import reverse
+from django_jinja.backend import Jinja2
+from mock import patch
 from nose.tools import eq_, ok_
 from pyquery import PyQuery as pq
 from rna.models import Release
 
-from bedrock.mozorg.helpers.misc import (convert_to_high_res, releasenotes_url,
-                                         absolute_url, switch)
+from bedrock.base.templatetags.helpers import static
+from bedrock.base.urlresolvers import reverse
+from bedrock.mozorg.templatetags.misc import (convert_to_high_res, releasenotes_url,
+                                              absolute_url, switch)
 from bedrock.mozorg.tests import TestCase
 
 
@@ -45,11 +44,12 @@ TEST_FIREFOX_TWITTER_ACCOUNTS = {
     'es-ES': 'https://twitter.com/firefox_es',
     'pt-BR': 'https://twitter.com/firefoxbrasil',
 }
+jinja_env = Jinja2.get_default()
 
 
 # Where should this function go?
 def render(s, context=None):
-    t = jingo.get_env().from_string(s)
+    t = jinja_env.from_string(s)
     return t.render(context or {})
 
 
@@ -59,7 +59,7 @@ def test_convert_to_high_res():
         '/media/thats-a-bummer-man-high-res.jpg')
 
 
-@patch('bedrock.mozorg.helpers.misc.config')
+@patch('bedrock.mozorg.templatetags.misc.config')
 def test_switch_helper(config_mock):
     switch('dude-and-walter')
     config_mock.assert_called_with('SWITCH_DUDE_AND_WALTER', default=settings.DEV, cast=bool)
@@ -96,7 +96,7 @@ class TestSecureURL(TestCase):
         self._test('', 'https://' + self.host + self.test_path, True)
 
 
-@patch('bedrock.mozorg.helpers.misc._l10n_media_exists')
+@patch('bedrock.mozorg.templatetags.misc._l10n_media_exists')
 @patch('django.conf.settings.LANGUAGE_CODE', 'en-US')
 class TestImgL10n(TestCase):
     rf = RequestFactory()
@@ -162,7 +162,7 @@ class TestImgL10n(TestCase):
 
 
 @override_settings(DEBUG=False)
-@patch('bedrock.mozorg.helpers.misc._l10n_media_exists')
+@patch('bedrock.mozorg.templatetags.misc._l10n_media_exists')
 class TestL10nCSS(TestCase):
     rf = RequestFactory()
     static_url_dev = '/static/'
@@ -261,7 +261,7 @@ class TestVideoTag(TestCase):
 
 
 @override_settings(STATIC_URL='/media/')
-@patch('bedrock.mozorg.helpers.misc.find_static', return_value=True)
+@patch('bedrock.mozorg.templatetags.misc.find_static', return_value=True)
 class TestPlatformImg(TestCase):
     rf = RequestFactory()
 
@@ -535,7 +535,7 @@ class TestAbsoluteURLFilter(TestCase):
 
 
 class TestReleaseNotesURL(TestCase):
-    @patch('bedrock.mozorg.helpers.misc.reverse')
+    @patch('bedrock.mozorg.templatetags.misc.reverse')
     def test_aurora_android_releasenotes_url(self, mock_reverse):
         """
         Should return the results of reverse with the correct args
@@ -546,7 +546,7 @@ class TestReleaseNotesURL(TestCase):
         mock_reverse.assert_called_with(
             'firefox.android.releasenotes', args=('42.0a2', 'aurora'))
 
-    @patch('bedrock.mozorg.helpers.misc.reverse')
+    @patch('bedrock.mozorg.templatetags.misc.reverse')
     def test_desktop_releasenotes_url(self, mock_reverse):
         """
         Should return the results of reverse with the correct args

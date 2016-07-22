@@ -1,20 +1,23 @@
-import jingo
 from django.conf import settings
 from django.test.client import RequestFactory
 from django.test.utils import override_settings
 
+from django_jinja.backend import Jinja2
 from mock import patch, Mock
 from nose.tools import assert_false, eq_, ok_
 from pyquery import PyQuery as pq
 
 from product_details import product_details
 from bedrock.mozorg.tests import TestCase
-from bedrock.firefox import helpers
+from bedrock.firefox.templatetags import helpers
 from bedrock.firefox.firefox_details import firefox_android
 
 
+jinja_env = Jinja2.get_default()
+
+
 def render(s, context=None):
-    t = jingo.get_env().from_string(s)
+    t = jinja_env.from_string(s)
     return t.render(context or {})
 
 
@@ -316,8 +319,8 @@ class TestFirefoxURL(TestCase):
 
 
 @override_settings(FIREFOX_OS_FEED_LOCALES=['xx'])
-@patch('bedrock.firefox.helpers.cache')
-@patch('bedrock.firefox.helpers.FirefoxOSFeedLink')
+@patch('bedrock.firefox.templatetags.helpers.cache')
+@patch('bedrock.firefox.templatetags.helpers.FirefoxOSFeedLink')
 class FirefoxOSFeedLinksTest(TestCase):
     def test_no_feed_for_locale(self, FirefoxOSFeedLink, cache):
         """

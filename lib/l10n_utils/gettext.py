@@ -13,7 +13,7 @@ from os.path import join
 from tokenize import generate_tokens, NAME, NEWLINE, OP, untokenize
 
 from django.conf import settings
-from django.core.cache import get_cache
+from django.core.cache import caches
 from django.template.loader import get_template
 from jinja2 import Environment
 
@@ -24,7 +24,7 @@ from lib.l10n_utils.utils import ContainsEverything
 
 ALL_THE_THINGS = ContainsEverything()
 REGEX_URL = re.compile(r'.* (\S+/\S+\.[^:]+).*')
-cache = get_cache('l10n')
+cache = caches['l10n']
 
 
 def parse_po(path):

@@ -239,13 +239,6 @@ STATICFILES_DIRS = (
     path('media'),
 )
 
-JINGO_EXCLUDE_APPS = (
-    'context_processors',
-    'registration',
-    'rest_framework',
-    'rna',
-)
-
 PIPELINE = {
     'STYLESHEETS': PIPELINE_CSS,
     'JAVASCRIPT': PIPELINE_JS,
