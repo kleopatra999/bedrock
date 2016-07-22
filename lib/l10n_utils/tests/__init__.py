@@ -10,7 +10,6 @@ from django.test.client import RequestFactory
 from django.test.utils import override_settings
 
 from django_jinja.backend import Jinja2
-from jinja2 import FileSystemLoader
 from mock import patch
 
 from lib import l10n_utils
@@ -42,7 +41,7 @@ class TempFileMixin(object):
         return tempf
 
 
-@patch.object(jinja_env.env, 'loader', FileSystemLoader(TEMPLATE_DIRS))
+@patch.object(jinja_env.env.loader, 'searchpath', TEMPLATE_DIRS)
 @override_settings(ROOT=ROOT)
 @override_settings(DEV=False)
 class TestRender(TestCase):

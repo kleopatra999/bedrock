@@ -12,6 +12,7 @@ class TestContext(TestCase):
     def setUp(self):
         translation.activate('en-US')
         self.factory = RequestFactory()
+        translation.activate('en-US')
 
     def render(self, content, request=None):
         if not request:

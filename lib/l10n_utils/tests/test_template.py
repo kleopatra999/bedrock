@@ -6,7 +6,6 @@ from django.template import TemplateDoesNotExist
 from django.test import RequestFactory, override_settings
 
 from django_jinja.backend import Jinja2
-from jinja2 import FileSystemLoader
 from jinja2.nodes import Block
 from mock import patch, ANY, Mock
 from nose.plugins.skip import SkipTest
@@ -20,7 +19,7 @@ from bedrock.mozorg.tests import TestCase
 
 ROOT_PATH = Path(__file__).with_name('test_files')
 ROOT = str(ROOT_PATH)
-TEMPLATE_DIR = str(ROOT_PATH.joinpath('templates'))
+TEMPLATE_DIRS = [str(ROOT_PATH.joinpath('templates'))]
 jinja_env = Jinja2.get_default().env
 
 
@@ -38,7 +37,7 @@ class TestL10nBlocks(TestCase):
         self.assertEqual(l10n_block.version, 20121212)
 
 
-@patch.object(jinja_env, 'loader', FileSystemLoader(TEMPLATE_DIR))
+@patch.object(jinja_env.loader, 'searchpath', TEMPLATE_DIRS)
 @override_settings(ROOT=ROOT)
 class TestTransBlocks(TestCase):
     urls = 'lib.l10n_utils.tests.test_files.urls'
@@ -62,7 +61,7 @@ class TestTransBlocks(TestCase):
         self.test_trans_block_works()
 
 
-@patch.object(jinja_env, 'loader', FileSystemLoader(TEMPLATE_DIR))
+@patch.object(jinja_env.loader, 'searchpath', TEMPLATE_DIRS)
 @override_settings(ROOT=ROOT)
 class TestTemplateLangFiles(TestCase):
     urls = 'lib.l10n_utils.tests.test_files.urls'
@@ -129,7 +128,7 @@ class TestNoLocale(TestCase):
         render(request, '500.html')
 
 
-@patch.object(jinja_env, 'loader', FileSystemLoader(TEMPLATE_DIR))
+@patch.object(jinja_env.loader, 'searchpath', TEMPLATE_DIRS)
 @patch('lib.l10n_utils.template_is_active', Mock(return_value=True))
 @patch('lib.l10n_utils.django_render')
 class TestLocaleTemplates(TestCase):

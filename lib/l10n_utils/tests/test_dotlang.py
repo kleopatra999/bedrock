@@ -12,7 +12,6 @@ from django.http import HttpRequest
 from django.test.utils import override_settings
 
 from django_jinja.backend import Jinja2
-from jinja2 import FileSystemLoader
 from mock import patch
 from nose.tools import assert_not_equal, eq_, ok_
 from pathlib import Path
@@ -29,12 +28,12 @@ from lib.l10n_utils.extract import extract_python
 LANG_FILES = 'test_file'
 ROOT_PATH = Path(__file__).with_name('test_files')
 ROOT = str(ROOT_PATH)
-TEMPLATE_DIR = str(ROOT_PATH.joinpath('templates'))
+TEMPLATE_DIRS = [str(ROOT_PATH.joinpath('templates'))]
 jinja_env = Jinja2.get_default().env
 
 
 @override_settings(DEV=False, LANGUAGE_CODE='en-US')
-@patch.object(jinja_env, 'loader', FileSystemLoader(TEMPLATE_DIR))
+@patch.object(jinja_env.loader, 'searchpath', TEMPLATE_DIRS)
 @patch.object(settings, 'ROOT_URLCONF', 'lib.l10n_utils.tests.test_files.urls')
 @patch.object(settings, 'ROOT', ROOT)
 class TestLangFilesActivation(TestCase):
@@ -211,7 +210,7 @@ class TestDotlang(TestCase):
         assert_not_equal(expected, result)
         eq_(len(mail.outbox), 0)
 
-    @patch.object(jinja_env, 'loader', FileSystemLoader(TEMPLATE_DIR))
+    @patch.object(jinja_env.loader, 'searchpath', TEMPLATE_DIRS)
     @patch.object(settings, 'ROOT_URLCONF', 'lib.l10n_utils.tests.test_files.urls')
     @patch.object(settings, 'ROOT', ROOT)
     def test_lang_files_queried_in_order(self):
@@ -395,7 +394,7 @@ class TestDotlang(TestCase):
         self.assertEqual(cache_mock.get.call_count, 0)
 
 
-@patch.object(jinja_env, 'loader', FileSystemLoader(TEMPLATE_DIR))
+@patch.object(jinja_env.loader, 'searchpath', TEMPLATE_DIRS)
 @patch.object(settings, 'ROOT_URLCONF', 'lib.l10n_utils.tests.test_files.urls')
 @patch.object(settings, 'ROOT', ROOT)
 class TestTranslationList(TestCase):
