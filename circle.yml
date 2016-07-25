@@ -14,6 +14,8 @@ machine:
     LOG_LEVEL: 40
     ADMINS: '["thedude@example.com"]'
     HMAC_KEYS: '{"2013-01-01": "prositneujahr"}'
+    RNA_SYNC_URL: https://nucleus-sugar.us-west.moz.works/rna/sync/
+
     # Deis
     DEIS_CONTROLLER: https://deis.us-west.moz.works
     DEIS_USERNAME: circleci
