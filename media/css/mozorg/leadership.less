@@ -1,0 +1,499 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import (reference) '../pebbles/lib.less';
+@import '../pebbles/components/masthead.less';
+@import '../pebbles/components/footer.less';
+
+#masthead {
+    background: @color-mozred;
+    color: #fff;
+
+    a {
+        color: #fff;
+    }
+}
+
+// Header
+.snapshot-header {
+    background: #e9dbac url('/media/img/sandstone/grain.png');
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.snap {
+    display: inline-block;
+    background: #fff;
+    padding: 20px 20px 50px 20px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, .2);
+    position: absolute;
+
+    span {
+        display: block;
+        width: 230px;
+        height: 230px;
+        background: #e8ebd3;
+    }
+
+    img {
+        display: block;
+        margin: 0;
+        outline: 1px solid rgba(0, 0, 0, .2);
+    }
+}
+
+.background {
+    height: 500px;
+    left: 50%;
+    margin-left: -(@width-desktop-wide / 2);
+    position: absolute;
+    width: @width-desktop-wide;
+    z-index: 1;
+
+    .snap img {
+        opacity: .9;
+    }
+
+    .shot-four {
+        left: -72px;
+        top: -56px;
+        transform: rotate(-45deg);
+    }
+
+    .shot-five {
+        left: 40px;
+        bottom: -140px;
+        transform: rotate(15deg);
+    }
+
+    .shot-six {
+        left: 365px;
+        top: -50px;
+        transform: rotate(23deg);
+    }
+
+    .shot-seven {
+        right: -35px;
+        top: -45px;
+        transform: rotate(17deg);
+    }
+
+    .shot-eight {
+        right: 255px;
+        top: -40px;
+        transform: rotate(-11deg);
+    }
+
+    .shot-nine {
+        right: -66px;
+        bottom: -88px;
+        transform: rotate(31deg);
+    }
+
+    .shot-ten {
+        right: 255px;
+        bottom: -118px;
+        transform: rotate(-30deg);
+    }
+
+    .shot-eleven {
+        left: 440px;
+        bottom: -135px;
+        transform: rotate(40deg);
+    }
+
+    .shot-twelve {
+        left: 105px;
+        top: 105px;
+        transform: rotate(-23deg);
+    }
+
+    .shot-thirteen {
+        left: -325px;
+        bottom: -35px;
+        transform: rotate(39deg);
+    }
+}
+
+.foreground {
+    height: 500px;
+    left: 50%;
+    margin-left: -(@width-desktop-wide / 2);
+    position: absolute;
+    top: 0;
+    width: @width-desktop-wide;
+    z-index: 10;
+
+    .snap {
+        position: absolute;
+    }
+
+    .snap img {
+        opacity: .05;
+        animation: develop 3s ease-in forwards;
+        -webkit-filter: invert(40%) sepia(80%);
+                filter: invert(40%) sepia(80%);
+    }
+
+    .shot-one {
+        left: 320px;
+        top: 96px;
+        transform: rotate(-3deg);
+
+        img {
+            animation-delay: 3600ms;
+        }
+    }
+
+    .shot-two {
+        left: 575px;
+        top: 103px;
+        transform: rotate(5deg);
+
+        img {
+            animation-delay: 2800ms;
+        }
+    }
+
+    .shot-three {
+        left: 835px;
+        top: 90px;
+        transform: rotate(-6deg);
+
+        img {
+            animation-delay: 4200ms;
+        }
+    }
+}
+
+@-webkit-keyframes develop {
+    0%   { -webkit-filter: invert(40%) sepia(100%); opacity: .05; }
+    25%  { -webkit-filter: invert(20%) sepia(90%); opacity: .25; }
+    50%  { -webkit-filter: invert(10%) sepia(80%); opacity: .5; }
+    75%  { -webkit-filter: invert(0) sepia(60%); opacity: .75; }
+    85%  { -webkit-filter: invert(0) sepia(40%); opacity: .85; }
+    100% { -webkit-filter: invert(0) sepia(0); opacity: 1; }
+}
+
+@keyframes develop {
+    0%   { -webkit-filter: invert(40%) sepia(100%); filter: invert(40%) sepia(100%); opacity: .05; }
+    25%  { -webkit-filter: invert(20%) sepia(90%); filter: invert(20%) sepia(90%); opacity: .25; }
+    50%  { -webkit-filter: invert(10%) sepia(80%); filter: invert(10%) sepia(80%); opacity: .5; }
+    75%  { -webkit-filter: invert(0) sepia(60%); filter: invert(0) sepia(60%); opacity: .75; }
+    85%  { -webkit-filter: invert(0) sepia(40%); filter: invert(0) sepia(40%); opacity: .85; }
+    100% { -webkit-filter: invert(0) sepia(0); filter: invert(0) sepia(0); opacity: 1; }
+}
+
+
+
+.page-header {
+    background: @color-mozgray;
+    color: #fff;
+}
+
+.page-title {
+    .font-size(2.369rem);
+
+    @media @mq-tablet {
+        .font-size(3.157rem);
+    }
+}
+
+.section-title {
+    .font-size(1.777rem);
+    margin: .5em 0;
+
+    @media @mq-tablet {
+        .font-size(2.369rem);
+    }
+}
+
+.section-intro {
+    .clearfix;
+    margin: 0 0 2em;
+}
+
+.group-title {
+    .font-size(1.333rem);
+    margin: 0 0 1em;
+    padding-top: .75em;
+    border-top: 1px solid @color-mozred;
+
+    a {
+        text-decoration: none;
+        color: @color-text-secondary;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            color: @color-link;
+        }
+    }
+
+    @media @mq-tablet {
+        .font-size(1.777rem);
+    }
+}
+
+.nav-tabs {
+    background: #eee;
+    float: left;
+    margin: 20px 0 -20px;
+
+    li {
+        display: inline-block;
+        border-right: 1px solid @color-mozgray;
+
+        &:last-child {
+            border: 0;
+        }
+    }
+
+    a {
+        display: block;
+        padding: .5em 20px;
+        text-decoration: none;
+        color: @color-text-primary;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            color: @color-link;
+        }
+    }
+}
+
+
+.section-group {
+    background: #ddd;
+    border-bottom: 1px solid #ccc;
+
+    &:nth-child(odd) {
+        background: #eee;
+    }
+}
+
+.gallery {
+    .clearfix;
+    margin: 0 -10px;
+
+    .vcard {
+        width: 165px;
+        padding: 0 20px .25em;
+        margin: 0 auto 20px;
+        position: relative;
+
+        .headshot {
+            display: block;
+            padding: 20px 20px 10px;
+            background: #fff;
+            margin: 0 -20px 10px;
+            box-shadow: 2px 3px 3px rgba(0, 0, 0, .1);
+            color: @color-text-primary;
+            text-decoration: none;
+            text-align: center;
+            .transition(all 200ms ease);
+        }
+
+        &:focus {
+            outline: 0;
+        }
+
+        .fn {
+            font-weight: bold;
+            .font-size(15px);
+        }
+
+        .photo {
+            margin: 0 0 5px;
+            width: 165px;
+            height: 165px;
+            outline: 1px solid rgba(0, 0, 0, .05);
+        }
+
+        .title,
+        .since,
+        .note {
+            .font-size(12px);
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        .note {
+            color: @color-mozred;
+        }
+
+        a {
+            text-decoration: none;
+            color: @color-text-primary;
+
+            &:hover .fn,
+            &:focus .fn,
+            &:active .fn {
+                color: @color-link;
+                text-decoration: underline;
+            }
+        }
+
+        &.has-bio:hover,
+        &.has-bio:focus {
+            cursor: pointer;
+
+            .headshot {
+                transform: translate(0, -3px);
+                box-shadow: 2px 6px 5px rgba(0, 0, 0, .1);
+            }
+
+            .photo {
+                outline: 2px solid fadeout(@color-link, 50%);
+            }
+
+            .fn {
+                color: @color-link;
+            }
+        }
+
+        @media @mq-phone-wide {
+            float: left;
+            margin: 0 10px 20px;
+
+            &:nth-child(odd) {
+                clear: left;
+            }
+        }
+
+        @media @mq-tablet {
+            &:nth-child(odd) {
+                clear: none;
+            }
+
+            &:nth-child(3n+1) {
+                clear: left;
+            }
+        }
+
+        @media @mq-desktop {
+            &:nth-child(odd),
+            &:nth-child(3n+1) {
+                clear: none;
+            }
+
+            &:nth-child(4n+1) {
+                clear: left;
+            }
+        }
+
+        @media @mq-desktop-wide {
+            &:nth-child(odd),
+            &:nth-child(3n+1),
+            &:nth-child(4n+1) {
+                clear: none;
+            }
+
+            &:nth-child(6n+1) {
+                clear: left;
+            }
+        }
+    }
+}
+
+.vcard .profile,
+.vcard .person-bio {
+    .hidden;
+}
+
+#modal {
+    .inner {
+        padding: 20px 40px;
+        background: #fff;
+        position: relative;
+    }
+
+    .headshot {
+        float: right;
+        margin: 0 0 2em 40px;
+
+        img {
+            width: 250px;
+            height: 250px;
+        }
+
+        .fn {
+            display: none;
+        }
+    }
+
+    .person-info {
+        margin: 0 0 2em;
+    }
+
+    .title {
+        .font-size(18px);
+        font-weight: bold;
+    }
+
+    .note {
+        color: @color-mozred;
+    }
+
+    .profile,
+    .person-bio {
+        display: block;
+    }
+
+    .person-bio p {
+        margin: 0 0 1em;
+    }
+
+    .window .inner > header {
+        background: @color-mozred;
+        margin: -20px -40px 20px;
+        text-align: left;
+        .font-size(20px);
+        padding: .5em 40px;
+        font-family: inherit;
+
+        h1 {
+            margin: 0;
+        }
+    }
+
+    .window .inner #modal-close {
+        top: 10px;
+    }
+
+    .next,
+    .prev {
+        .image-replaced;
+        .transition(background-position 150ms ease);
+        border: 0;
+        cursor: pointer;
+        display: block;
+        height: 40px;
+        position: absolute;
+        top: 250px;
+        width: 30px;
+        -moz-appearance: none;
+
+        &:hover,
+        &:focus {
+            background-position: center center;
+        }
+    }
+
+    .next {
+        right: -40px;
+        background: transparent url('/media/img/mozid/modal-right.svg') left center no-repeat;
+    }
+
+    .prev {
+        left: -40px;
+        background: transparent url('/media/img/mozid/modal-left.svg') right center no-repeat;
+    }
+}
+

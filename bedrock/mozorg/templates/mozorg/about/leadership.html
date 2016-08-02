@@ -2,489 +2,856 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/. -#}
 
-{% extends "mozorg/about-base.html" %}
+{% extends "base-new.html" %}
 
 {% block page_title %}{{ _('Mozilla Leadership') }}{% endblock %}
 {% block body_id %}about-leadership{% endblock %}
-{% block body_class %}sand about-leadership{% endblock %}
+{% block body_class %}about-leadership{% endblock %}
 
-{% block article %}
+{% block page_css %}
+  {% stylesheet 'about-leadership' %}
+{% endblock %}
 
-  <h1 class="title-shadow-box">{{ _('Leadership') }}</h1>
+{% block js %}
+  {% javascript 'about-leadership' %}
+{% endblock %}
 
-  <p>
-  {% if l10n_has_tag('leadership_copy_update') %}  
-    {{ _('Our leadership team is made up of both paid staff and volunteers with expertise building products and empowering communities.') }}
-  {% else %}
-    {{ _('Our leadership team is made up of both paid staff and volunteers who represent a breadth of experience and expertise in building products that people love and empowering communities to make a significant impact on the project and in the world.')}}
-  {% endif %}
-  {{ _('While these teams have different day-to-day responsibilities and areas of focus, they are all guided by our non-profit, open-source, community-based mission, identity and values.') }}
-  </p>
+{% block site_header_logo %}{% endblock %}
 
-  <nav id="page-nav">
-    <ul>
-      <li><a href="#management">{{ _('Management Teams') }}</a></li>
-      <li><a href="#reps-council">{{ _('Mozilla Reps Council') }}</a></li>
-      <li><a href="#directors">{{ _('Boards of Directors') }}</a></li>
-    </ul>
-  </nav>
+{% block content %}
+<main>
+  <div class="snapshot-header">
 
-  <section id="management" class="brass">
-    <h2>{{ _('Management Teams') }}</h2>
+    <div class="foreground">
+      <span class="snap shot-one">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-fore-mark.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
 
-    <h3 id="mgmt-corp"><a href="{{ url('foundation.moco') }}">{{ _('Mozilla Corporation') }}</a></h3>
-    <ul class="gallery">
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/mitchell-baker/">
+      <span class="snap shot-two">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-fore-mitchell.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-three">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-fore-chris.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+    </div>
+
+    <div class="background">
+      <span class="snap shot-twelve">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-jascha.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-four">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-angela.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-five">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-sylvie-allison-angela.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-six">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-mary-ellen.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-seven">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-mark-denelle-jascha.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-eight">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-allison-david-ari.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-nine">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-ekr.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-ten">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-katharina.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-eleven">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-ari.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+
+      <span class="snap shot-thirteen">
+        <span>
+          <img src="{{ static('img/mozorg/about/leadership/header/snap-fox.jpg') }}" alt="" width="230" height="230">
+        </span>
+      </span>
+    </div>
+
+  </div>
+
+  <header class="page-header section">
+    <div class="content">
+
+      <h1 class="page-title">{{ _('Leadership') }}</h1>
+      <div class="page-intro">
+        <p>
+          {{ _('Our leadership team is made up of both paid staff and volunteers with expertise building products and empowering communities.') }}
+          {{ _('While these teams have different day-to-day responsibilities and areas of focus, they are all guided by our non-profit, open-source, community-based mission, identity and values.') }}
+        </p>
+      </div>
+
+      <nav class="nav-tabs" id="page-nav">
+        <ul>
+          <li><a href="#management">{{ _('Management Teams') }}</a></li>
+          <li><a href="#reps-council">{{ _('Mozilla Reps Council') }}</a></li>
+          <li><a href="#directors">{{ _('Boards of Directors') }}</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section id="management" class="section section-group">
+    <div class="content">
+
+    <h2 class="section-title">{{ _('Management Teams') }}</h2>
+
+    <h3 class="group-title" id="mgmt-corp"><a href="{{ url('foundation.moco') }}">{{ _('Mozilla Corporation') }}</a></h3>
+
+    <div class="gallery">
+      <article id="mitchell-baker" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/mitchell-baker.jpg') }}">
-          <span class="fn" itemprop="name">Mitchell Baker</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Executive Chairwoman') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Mitchell Baker</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/MitchellBaker">@MitchellBaker</a></li>
-          <li><a class="url website" itemprop="url" href="https://blog.lizardwrangler.com">lizardwrangler.com</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/mitchell/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Executive Chairwoman') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 1998</p>
+          <p class="profile"><a class="url" itemprop="url" rel="external" href="https://mozillians.org/u/mitchell/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/chris-beard/">
+        <div class="person-bio">
+          <p>As the leader of the Mozilla Project, Mitchell Baker is responsible for organizing and motivating a massive, worldwide, collective of employees and volunteers who are breathing new life into the Internet with the Firefox Web browser, Firefox OS and other Mozilla products. Mitchell was born and raised in Berkeley, California, receiving her BA in Asian Studies from UC Berkeley and her JD from the Boalt Hall School of Law. Mitchell has been the general manager of the Mozilla project since 1999. She served as CEO of Mozilla until January 2008, when the organization’s rapid growth encouraged her to split her responsibilities and add a CEO. Mitchell remains deeply engaged in developing product offerings that promote the mission of empowering individuals. She also guides the overall scope and direction of Mozilla’s mission.</p>
+
+          <p>As Executive Chairwoman of Mozilla, Mitchell continues her commitment to an open, innovative Web and the infinite possibilities it presents. TIME Magazine profiled Mitchell under “Scientists and Thinkers” in its TIME 100 and she has appeared on NBC’s “Meet the Press”, BBC’s “HardTalk”, “The Charlie Rose Show” and “CNN Global Office”. Bloomberg listed her as one of the ’25 Most Influential People on the Web’. Mitchell was honored as winner of the Anita Borg Institute’s 2009 Women of Vision Award and in 2010 she was the recipient of the Aenne Burda Award for Creative Leadership. In 2012, Mitchell was inducted into the founding group of the Internet Society’s Hall of Fame.</p>
+
+          <p>Mitchell serves as a Board Member for the OpenMRS, which builds the world’s leading open source enterprise electronic medical record system platform. She is an MIT Media Lab Research Affiliate, Open Agriculture Initiative, co-chairs the Department of Commerce Digital Economy Advisory Board and serves on the United Nations High Level Panel on Women’s Economic Empowerment. Mitchell was co-Chair of the World Economic Forum Annual Meeting of the New Champions in 2015.</p>
+        </div>
+      </article>
+
+      <article id="chris-beard" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/chris-beard.jpg') }}">
-          <span class="fn" itemprop="name">Chris Beard</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Chief Executive Officer') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Chris Beard</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/cbeard">@cbeard</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/cbeard/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Chief Executive Officer') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2004</p>
+          <p class="profile"><a class="url" itemprop="url" rel="external" href="https://mozillians.org/u/cbeard/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/katharina-borchert/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="katharina-borchert" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/katharina-borchert.jpg') }}">
-          <span class="fn" itemprop="name">Katharina Borchert</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Chief Innovation Officer') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Katharina Borchert</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/lyssaslounge">@lyssaslounge</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/Katharina/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Chief Innovation Officer') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2015</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/Katharina/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/david-bryant/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="david-bryant" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/david-bryant.jpg') }}">
-          <span class="fn" itemprop="name">David Bryant</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Interim CTO and VP, Platform Engineering') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">David Bryant</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/david_bryant">@david_bryant</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/dbryant/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Interim CTO and VP, Platform Engineering') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2006</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/dbryant/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/jim-cook/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="jim-cook" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/jim-cook.jpg') }}">
-          <span class="fn" itemprop="name">Jim Cook</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Chief Finance Officer') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Jim Cook</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/cookflix">@cookflix</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/jcook/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Chief Finance Officer') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2010</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/jcook/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/denelle-dixon-thayer/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="denelle-dixon-thayer" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/denelle-dixon-thayer.jpg') }}">
-          <span class="fn" itemprop="name">Denelle Dixon-Thayer</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Chief Legal and Business Officer') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Denelle Dixon-Thayer</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/ddixon/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Chief Legal and Business Officer') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2009</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/ddixon/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/ari-jaaksi/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="ari-jaaksi" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/ari-jaaksi.jpg') }}">
-          <span class="fn" itemprop="name">Ari Jaaksi</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Senior Vice President, Connected Devices') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <h4 class="fn" itemprop="name">Ari Jaaksi</h4>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/jaaksi">@jaaksi</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/ajaaksi/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Senior Vice President, Connected Devices') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2015</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/ajaaksi/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/jascha-kaykas-wolff/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="jascha-kaykas-wolff" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/jascha-kaykas-wolff.jpg') }}">
-          <span class="fn" itemprop="name">Jascha Kaykas-Wolff</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Chief Marketing Officer') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Jascha Kaykas-Wolff</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/kaykas">@kaykas</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/kaykas/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Chief Marketing Officer') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2015</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/kaykas/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/mark-mayo/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="mark-mayo" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/mark-mayo.jpg') }}">
-          <span class="fn" itemprop="name">Mark Mayo</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Senior Vice President, Firefox') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Mark Mayo</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/mmayo">@mmayo</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/mmayo/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Senior Vice President, Firefox') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2011</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/mmayo/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/david-slater/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="david-slater" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/david-slater.jpg') }}">
-          <span class="fn" itemprop="name">David Slater</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Chief of Staff and SVP of Operations') }}</span>
-        <span class="note">{{ _('Steering Committee') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">David Slater</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/seeyaslater">@seeyaslater</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/dslater/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Chief of Staff and SVP of Operations') }}</p>
+          <p class="note">{{ _('Steering Committee') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2015</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/dslater/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/allison-banks/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="allison-banks" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/allison-banks.jpg') }}">
-          <span class="fn" itemprop="name">Allison Banks</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP, People') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Allison Banks</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/alliesuz">@alliesuz</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/abanks">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP, People') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2014</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/abanks">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/susan-chen/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="susan-chen" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/susan-chen.jpg') }}">
-          <span class="fn" itemprop="name">Susan Chen</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP, Business Development') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Susan Chen</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/schen">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP, Business Development') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2016</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/schen">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/mary-ellen-muckerman/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="mary-ellen-muckerman" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/mary-ellen-muckerman.jpg') }}">
-          <span class="fn" itemprop="name">Mary Ellen Muckerman</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP, Brand Engagement') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Mary Ellen Muckerman</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/maryellen/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP, Brand Engagement') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2014</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/maryellen/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/nick-nguyen/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="nick-nguyen" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/nick-nguyen.jpg') }}">
-          <span class="fn" itemprop="name">Nick Nguyen</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP of Product, Firefox') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Nick Nguyen</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/osunick">@osunick</a></li>
-          <li><a class="url website" itemprop="url" href="http://osunick.com">osunick.com</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/osunick/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP of Product, Firefox') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2008</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/osunick/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/eric-rescorla/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="eric-rescorla" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/eric-rescorla.jpg') }}">
-          <span class="fn" itemprop="name">Eric Rescorla</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('Fellow') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Eric Rescorla</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/ekr/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('Fellow') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2001</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/ekr/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/alex-salkever/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="alex-salkever" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/alex-salkever.jpg') }}">
-          <span class="fn" itemprop="name">Alex Salkever</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP of Marketing Communications') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Alex Salkever</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/AlexSalkever">@AlexSalkever</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/asalkever/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP of Marketing Communications') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2016</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/asalkever/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/sylvie-veilleux/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="sylvie-veilleux" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/sylvie-veilleux.jpg') }}">
-          <span class="fn" itemprop="name">Sylvie Veilleux</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP, Information Technology') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Sylvie Veilleux</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/sveilleux/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP, Information Technology') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2013</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/sveilleux/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/dr-sean-white/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="sean-white" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/sean-white.jpg') }}">
-          <span class="fn" itemprop="name">Sean White</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP, Technology Strategy') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Sean White</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/seanwhite">@seanwhite</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/seanwhite/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
-    </ul>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP, Technology Strategy') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2016</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/seanwhite/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-    <h3 id="mgmt-foundation"><a href="{{ url('foundation.index') }}">{{ _('Mozilla Foundation') }}</a></h3>
-    <ul class="gallery">
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/mark-surman/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="group-title" id="mgmt-foundation"><a href="{{ url('foundation.index') }}">{{ _('Mozilla Foundation') }}</a></h3>
+
+    <div class="gallery">
+      <article id="mark-surman" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/mark-surman.jpg') }}">
-          <span class="fn" itemprop="name">Mark Surman</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('President and Executive Director') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Mark Surman</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/msurman">@msurman</a></li>
-          <li><a class="url website" itemprop="url" href="https://commonspace.wordpress.com/">{{ _('Website') }}</a></li>
-          <li><a class="url book" itemprop="url" href="https://mozillians.org/u/surman/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('President and Executive Director') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 1999</p>
+          <p class="profile"><a class="url book" itemprop="url" href="https://mozillians.org/u/surman/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://mozillians.org/u/davida/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="david-ascher" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/david-ascher.jpg') }}">
-          <span class="fn" itemprop="name">David Ascher</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP, Product') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">David Ascher</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/davidascher">@davidascher</a></li>
-          <li><a class="url website" itemprop="url" href="http://blog.ascher.ca/">ascher.ca</a></li>
-          <li><a class="book" href="https://mozillians.org/u/davida/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP, Product') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2011</p>
+          <p class="profile"><a class="book" href="https://mozillians.org/u/davida/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://mozillians.org/u/CLAW/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="chris-lawrence" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/chris-lawrence.jpg') }}">
-          <span class="fn" itemprop="name">Chris Lawrence</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP, Learning') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Chris Lawrence</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/chrislarry33">@chrislarry33</a></li>
-          <li><a class="book" href="https://mozillians.org/u/CLAW/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP, Learning') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2008</p>
+          <p class="profile"><a class="book" href="https://mozillians.org/u/CLAW/">{{ _('Mozillians profile') }}</a></p>
+        </div>
 
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://mozillians.org/u/aplohman/">
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+
+      <article id="angela-plohman" class="vcard has-bio" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/angela-plohman.jpg') }}">
-          <span class="fn" itemprop="name">Angela Plohman</span>
-        </a>
-        <span class="title" itemprop="jobTitle">{{ _('VP, Operations') }}</span>
+          <figcaption><h4 class="fn" itemprop="name">Angela Plohman</h4></figcaption>
+        </figure>
 
-        <ul class="elsewhere">
-          <li><a class="url twitter" itemprop="url" href="https://twitter.com/angelaplohman">@angelaplohman</a></li>
-          <li><a class="book" href="https://mozillians.org/u/aplohman/">{{ _('Mozillians profile') }}</a></li>
-        </ul>
-      </li>
-    </ul>
+        <div class="person-info">
+          <p class="title" itemprop="jobTitle">{{ _('VP, Operations') }}</p>
+          <p class="since">{{ _('With Mozilla since:') }} 2012</p>
+          <p class="profile"><a class="book" href="https://mozillians.org/u/aplohman/">{{ _('Mozillians profile') }}</a></p>
+        </div>
+
+        <div class="person-bio">
+          <p>Lorem ipsum dolor sit amet, no ignota salutatus disputando sed, ei singulis suavitate temporibus eos. Cum decore voluptatum ad, est an fugit labore verterem. Mel eu quidam scripta, pro labitur probatus iudicabit ei, id oratio tibique mnesarchum has. Per at alia reformidans.</p>
+
+          <p> Quis labore invenire eu duo, habeo hendrerit omittantur sed ne. Et cibo inimicus vis. Utinam oporteat mediocrem mel ei, et epicurei interesset eos, quo inani interesset at. Id usu dolorem consulatu, sale essent epicuri pro ex, dicit postulant no vim.</p>
+
+          <p>Dicam aperiam vis eu. Pro tale vituperata in. Pro ut nobis appareat. Exerci populo id per, quo ex elitr propriae nominavi, pro eirmod debitis elaboraret eu. Illum tincidunt ut pri, zril altera sea eu. Eum ne mentitum explicari, per eloquentiam definitiones no.</p>
+
+          <p>Nec ad paulo consequuntur, no dolor intellegat eum. At pro malorum quaerendum. Ius verterem prodesset id, ei duo dolore maiorum recteque. Ea ius case abhorreant quaerendum, sed ullum nonumes dissentiet ei. Simul nonumy antiopam mei id. Eu vero mucius sed.</p>
+        </div>
+      </article>
+    </div>
+
+    </div>
   </section>
 
-  <section id="reps-council">
-    <h2>{{ _('Mozilla Reps Council') }}</h2>
-    <p>{{ _('The Mozilla Reps Council is composed of volunteer Mozillians who function as official representatives of Mozilla in their region or locale. The council provides the general vision for the Mozilla Reps Program and oversees day-to-day operations globally.') }}</p>
+  <section id="reps-council" class="section section-group">
+    <div class="content">
+
+    <h2 class="section-title">{{ _('Mozilla Reps Council') }}</h2>
+    <div class="section-intro">
+      <p>{{ _('The Mozilla Reps Council is composed of volunteer Mozillians who function as official representatives of Mozilla in their region or locale. The council provides the general vision for the Mozilla Reps Program and oversees day-to-day operations globally.') }}</p>
+    </div>
+
     <ul class="gallery">
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/umesh/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/umesh-agarwal.jpg') }}">
-          <span class="fn" itemprop="name">Umesh Agarwal</span>
+        <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/umesh/">
+          <figure class="headshot">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/umesh-agarwal.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Umesh Agarwal</h4></figcaption>
+          </figure>
+          <p class="since">{{ _('With Mozilla since:') }} 2012</p>
         </a>
       </li>
 
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/rardila/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/rosana-ardila.jpg') }}">
-          <span class="fn" itemprop="name">Rosana Ardila</span>
+        <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/rardila/">
+          <figure class="headshot">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/rosana-ardila.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Rosana Ardila</h4></figcaption>
+          </figure>
+          <p class="since">{{ _('With Mozilla since:') }} 2012</p>
         </a>
       </li>
 
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/FaisalAziz/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/faisal-aziz.jpg') }}">
-          <span class="fn" itemprop="name">Faisal Aziz</span>
+        <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/FaisalAziz/">
+          <figure class="headshot">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/faisal-aziz.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Faisal Aziz</h4></figcaption>
+          </figure>
+          <p class="since">{{ _('With Mozilla since:') }} xxxx</p>
         </a>
       </li>
 
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/bacharakis/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/christos-bacharakis.jpg') }}">
-          <span class="fn" itemprop="name">Christos Bacharakis</span>
+        <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/bacharakis/">
+          <figure class="headshot">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/christos-bacharakis.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Christos Bacharakis</h4></figcaption>
+          </figure>
+          <p class="since">{{ _('With Mozilla since:') }} xxxx</p>
         </a>
       </li>
 
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/shahidfarooqui/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/shahid-farooqui.jpg') }}">
-          <span class="fn" itemprop="name">Shahid Ali Farooqui</span>
+        <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/shahidfarooqui/">
+          <figure class="headshot">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/shahid-farooqui.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Shahid Ali Farooqui</h4></figcaption>
+          </figure>
+          <p class="since">{{ _('With Mozilla since:') }} xxxx</p>
         </a>
       </li>
 
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/michaelkohler/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/michael-kohler.jpg') }}">
-          <span class="fn" itemprop="name">Michael Kohler</span>
-        </a>
+        <figure class="headshot">
+          <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/michaelkohler/">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/michael-kohler.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Michael Kohler</h4></figcaption>
+          </a>
+        </figure>
+        <p class="since">{{ _('With Mozilla since:') }} xxxx</p>
       </li>
 
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/nukeador/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/ruben-martin.jpg') }}">
-          <span class="fn" itemprop="name">Rubén Martin</span>
-        </a>
+        <figure class="headshot">
+          <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/nukeador/">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/ruben-martin.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Rubén Martin</h4></figcaption>
+          </a>
+        </figure>
+        <p class="since">{{ _('With Mozilla since:') }} xxxx</p>
       </li>
 
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/thephoenixbird/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/arturo-martinez.jpg') }}">
-          <span class="fn" itemprop="name">Arturo Martinez</span>
-        </a>
+        <figure class="headshot">
+          <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/thephoenixbird/">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/arturo-martinez.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Arturo Martinez</h4></figcaption>
+          </a>
+        </figure>
+        <p class="since">{{ _('With Mozilla since:') }} xxxx</p>
       </li>
 
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://reps.mozilla.org/u/Rara/">
-          <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/irayani_queencyputri.jpg') }}">
-          <span class="fn" itemprop="name">Irayani Queencyputri</span>
-        </a>
+        <figure class="headshot">
+          <a class="url" itemprop="url" rel="external" href="https://reps.mozilla.org/u/Rara/">
+            <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/irayani_queencyputri.jpg') }}">
+            <figcaption><h4 class="fn" itemprop="name">Irayani Queencyputri</h4></figcaption>
+          </a>
+        </figure>
+        <p class="since">{{ _('With Mozilla since:') }} xxxx</p>
       </li>
     </ul>
+
+    </div>
   </section>
 
-  <section id="directors">
-    <h2>{{ _('Boards of Directors') }}</h2>
+  <section id="boards" class="section section-group">
+    <div class="content">
 
-    <h3 id="board-corp">{{ _('Mozilla Corporation') }}</h3>
+    <h2 class="section-title">{{ _('Boards of Directors') }}</h2>
+
+    <h3 class="group-title" id="board-corp">{{ _('Mozilla Corporation') }}</h3>
+
     <ul class="gallery">
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/mitchell-baker/">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/mitchell-baker.jpg') }}">
           {# L10n: This "Chair" is the chairperson of the board of directors, not something to sit on #}
-          <span class="fn" itemprop="name">Mitchell Baker, {{ _('Chair') }}</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Mitchell Baker, {{ _('Chair') }}</h4></figcaption>
+        </figure>
       </li>
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/chris-beard/">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/chris-beard.jpg') }}">
-          <span class="fn" itemprop="name">Chris Beard</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Chris Beard</h4></figcaption>
+        </figure>
       </li>
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://www.linkedin.com/in/reidhoffman">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/reid-hoffman.jpg') }}">
-          <span class="fn" itemprop="name">Reid Hoffman</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Reid Hoffman</h4></figcaption>
+        </figure>
       </li>
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="http://www.hbs.edu/klakhani">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/karim-lakhani.jpg') }}">
-          <span class="fn" itemprop="name">Karim Lakhani</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Karim Lakhani</h4></figcaption>
+        </figure>
       </li>
     </ul>
 
-    <h3 id="board-foundation">{{ _('Mozilla Foundation') }}</h3>
+    <h3 class="group-title" id="board-foundation">{{ _('Mozilla Foundation') }}</h3>
     <ul class="gallery">
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://blog.mozilla.org/press/bios/mitchell-baker/">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/mitchell-baker.jpg') }}">
           {# L10n: This "Chair" is the chairperson of the board of directors, not something to sit on #}
-          <span class="fn" itemprop="name">Mitchell Baker, {{ _('Chair') }}</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Mitchell Baker, {{ _('Chair') }}</h4></figcaption>
+        </figure>
       </li>
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="http://brian.behlendorf.com/">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/brian-behlendorf.jpg') }}">
-          <span class="fn" itemprop="name">Brian Behlendorf</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Brian Behlendorf</h4></figcaption>
+        </figure>
       </li>
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://twitter.com/lisbonne">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/bob-lisbonne.jpg') }}">
-          <span class="fn" itemprop="name">Bob Lisbonne</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Bob Lisbonne</h4></figcaption>
+        </figure>
       </li>
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="http://www.cathydavidson.com/">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/cathy-davidson.jpg') }}">
-          <span class="fn" itemprop="name">Cathy Davidson</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Cathy Davidson</h4></figcaption>
+        </figure>
       </li>
       <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://twitter.com/lemos_ronaldo">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/ronaldo-lemos.jpg') }}">
-          <span class="fn" itemprop="name">Ronaldo Lemos</span>
-        </a>
+          <figcaption><h4 class="fn" itemprop="name">Ronaldo Lemos</h4></figcaption>
+        </figure>
       </li>
     </ul>
 
-    <h4>{{ _('Emeritus Board Members') }}</h4>
-    <ul class="gallery">
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://www.media.mit.edu/new-director/bio">
+    <h3 class="group-title">{{ _('Emeritus Board Members') }}</h3>
+
+    <div class="gallery">
+      <article id="joi-ito" class="vcard" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/joi-ito.jpg') }}">
-          <span class="fn" itemprop="name">Joi Ito</span>
-        </a>
-      </li>
-      <li class="vcard" itemscope itemtype="http://schema.org/Person">
-        <a class="url" itemprop="url" href="https://twitter.com/mkapor">
+          <figcaption><h4 class="fn" itemprop="name">Joi Ito</h4></figcaption>
+        </figure>
+      </article>
+
+      <article id="mitch-kapor" class="vcard" itemscope itemtype="http://schema.org/Person">
+        <figure class="headshot">
           <img class="photo" itemprop="image" alt="" src="{{ static('img/mozorg/about/leadership/mitch-kapor.jpg') }}">
-          <span class="fn" itemprop="name">Mitch Kapor</span>
-        </a>
-      </li>
-    </ul>
+          <figcaption><h4 class="fn" itemprop="name">Mitch Kapor</h4></figcaption>
+        </figure>
+      </article>
+    </div>
+
+    </div>
   </section>
+
+</main>
 
 {% endblock %}
