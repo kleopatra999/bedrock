@@ -20,8 +20,8 @@
   {{ _('Did you know? Mozilla — the maker of Firefox — fights to keep the Internet a global public resource, open and accessible to all.') }}
 {% endblock %}
 
-{% block body_id %}home-b{% endblock %}
-{% block body_class %}home-variant home-variant-b{% endblock %}
+{% block body_id %}home-en-US{% endblock %}
+{% block body_class %}home-en-US{% endblock %}
 
 {% block extra_meta %}
 <!-- validates bing webmaster tools -->
@@ -31,7 +31,7 @@
 {% endblock %}
 
 {% block page_css %}
-  {% stylesheet 'home-b' %}
+  {% stylesheet 'home-en-US' %}
 {% endblock %}
 
 {% block optimizely %}
@@ -70,17 +70,27 @@
 
 {% block content %}
 <main role="main" class="main wrapper">
-  <section class="section section-intro" id="intro">
+  <section class="section section-intro intro-control" id="intro">
+  {% block intro %}
     <div class="content">
-      {# L10n: line break below for visual formatting only #}
-      <h2><span>{{ _('Internet for people, <br>not profit.') }}</span></h2>
+      <h2>
+        <span>
+        {% block intro_title %}
+          {# L10n: line break below for visual formatting only #}
+          {{ _('Internet for people, <br>not profit.') }}
+        {% endblock %}
+        </span>
+      </h2>
       <h3>
-      {% trans %}
-        Hi. We’re Mozilla, the proudly non-profit champions of the Internet,
-        helping to keep it healthy, open and accessible to all.
-      {% endtrans %}
+      {% block intro_copy %}
+        {% trans %}
+          Hi. We’re Mozilla, the proudly non-profit champions of the Internet,
+          helping to keep it healthy, open and accessible to all.
+        {% endtrans %}
+      {% endblock %}
       </h3>
     </div>
+  {% endblock %}
   </section>
 
   <section class="section" id="who-innovate-wrapper">
@@ -91,13 +101,19 @@
 
       <div class="slider-detail">
         <div class="slider-content">
-          <h2 class="slider-detail-headline">{{ _('Our impact') }}</h2>
+          <h2 class="slider-detail-headline">
+            {% block people_title %}
+              {{ _('Our impact') }}
+            {% endblock %}
+          </h2>
           <p>
-          {% trans %}
-            Working at the grassroots and policy levels, we teach web literacy,
-            provide tools and advocate on behalf of every individual who values
-            an internet built on fairness, inclusion and respect.
-          {% endtrans %}
+          {% block people_copy %}
+            {% trans %}
+              Working at the grassroots and policy levels, we teach web literacy,
+              provide tools and advocate on behalf of every individual who values
+              an internet built on fairness, inclusion and respect.
+            {% endtrans %}
+          {% endblock %}
           </p>
 
           <ul class="icon-links">
@@ -116,13 +132,19 @@
 
       <div class="slider-detail">
         <div class="slider-content">
-          <h2 class="slider-detail-headline">{{ _('Our innovations') }}</h2>
+          <h2 class="slider-detail-headline">
+            {% block innovation_title %}
+              {{ _('Our innovations') }}
+            {% endblock %}
+          </h2>
           <p>
-          {% trans %}
-            Using the web as the platform, we build open, innovative
-            technologies that allow developers to work free of closed, corporate
-            ecosystems and create faster, safer web experiences for us all.
-          {% endtrans %}
+          {% block innovation_copy %}
+            {% trans %}
+              Using the web as the platform, we build open, innovative
+              technologies that allow developers to work free of closed, corporate
+              ecosystems and create faster, safer web experiences for us all.
+            {% endtrans %}
+          {% endblock %}
           </p>
 
           <ul class="icon-links">
@@ -168,6 +190,29 @@
         </div>
       </div>
     </div> {# --/.foreground --#}
+  </section>
+
+  <section class="section section-externals" id="externals">
+    <ul class="content">
+      <li>
+        <a class="add-ons" rel="external" href="https://addons.mozilla.org/">
+          <h3>{{ _('Add-ons') }}</h3>
+          <p>{{ _('Compare prices, check the weather, listen to music, send a tweet and more right from Firefox.') }}</p>
+        </a>
+      </li>
+      <li>
+        <a class="careers" rel="external" href="https://careers.mozilla.org/">
+          <h3>{{ _('Careers') }}</h3>
+          <p>{{ _('Learn about the benefits of working at Mozilla and view open positions around the world.') }}</p>
+        </a>
+      </li>
+      <li>
+        <a class="help" rel="external" href="https://support.mozilla.org/">
+          <h3>{{ _('Need help?') }}</h3>
+          <p>{{ _('Get answers to your questions about Firefox and all Mozilla products from our support team.') }}</p>
+        </a>
+      </li>
+    </ul>
   </section>
 
   <aside class="section section-newsletter" id="newsletter-subscribe">
@@ -239,8 +284,10 @@
 {% endblock %}
 
 {% block js %}
-  {% javascript 'home-b' %}
+  {% javascript 'home-en-US' %}
 
   {# survey is en-US only - enforced via optimizely audience segmentation #}
-  {% include 'mozorg/home/includes/survey-b.html' %}
+  {% if LANG == 'en-US' %}
+    {% include 'mozorg/home/includes/survey.html' %}
+  {% endif %}
 {% endblock %}
